@@ -9,7 +9,7 @@
     android:layout_marginStart="28dp"
     android:layout_marginTop="16dp"
     android:background="@color/colorWhite"
-    android:elevation="1dp"
+    android:elevation="8dp"
     fresco:cardCornerRadius="4dp">
 
     <LinearLayout
@@ -17,12 +17,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/row_simpledraweeview_rocketimage"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            fresco:actualImageScaleType="fitXY" />
+
         <TextView
             android:id="@+id/row_textview_launchname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="4dp"
+            android:layout_margin="8dp"
             android:textColor="@color/colorBlack"
             android:textSize="20dp"
             tools:text="Falcon 9 Full Thrust | Iridium-7" />
@@ -31,18 +36,11 @@
             android:id="@+id/row_textview_launchtime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="4dp"
+            android:layout_margin="8dp"
             android:drawablePadding="4dp"
             android:drawableStart="@drawable/ic_access_time_black_24dp"
             android:textSize="14dp"
             tools:text="July 25, 2018 11:39:26 UTC" />
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/row_simpledraweeview_rocketimage"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            fresco:actualImageScaleType="fitXY" />
 
         <TextView
             android:id="@+id/row_textview_launchlocation"

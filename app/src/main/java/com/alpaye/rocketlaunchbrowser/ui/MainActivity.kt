@@ -2,6 +2,7 @@ package com.alpaye.rocketlaunchbrowser.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.alpaye.rocketlaunchbrowser.R
 import com.alpaye.rocketlaunchbrowser.model.LaunchResponseModel
@@ -29,12 +30,28 @@ class MainActivity : AppCompatActivity(), MainView {
         }
 
         mainPresenter.getUpcomingTen(upcomingLaunchNum)
-
-
     }
 
-    override fun showUpcomingTenLaunch(launchResponse: LaunchResponseModel?) =
-            launchAdapter.updateList(ArrayList(launchResponse?.launchObject))
+    override fun onDestroy() {
+        mainPresenter.onDestroy()
+        super.onDestroy()
+    }
+
+    override fun showUpcomingTenLaunch(launchResponse: LaunchResponseModel?) {
+        launchAdapter.updateList(ArrayList(launchResponse?.launchObject))
+    }
 
     override fun showError() = Toast.makeText(applicationContext, "Server Error", Toast.LENGTH_SHORT).show()
+
+    override fun showAnimation() {
+        activity_main_recyclerview_upcominglaunchs.visibility = View.GONE
+        activity_main_lottieanimation.playAnimation()
+        activity_main_lottieanimation.visibility = View.VISIBLE
+    }
+
+    override fun stopAnimation() {
+        activity_main_lottieanimation.visibility = View.GONE
+        activity_main_lottieanimation.pauseAnimation()
+        activity_main_recyclerview_upcominglaunchs.visibility = View.VISIBLE
+    }
 }

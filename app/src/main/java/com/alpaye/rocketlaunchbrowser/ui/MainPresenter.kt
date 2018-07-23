@@ -7,6 +7,7 @@ class MainPresenter(var mainView: MainView?,
 ) : MainInteractor.OnResponseListener {
 
     fun getUpcomingTen(upcomingLaunchNum: Int) {
+        mainView?.showAnimation()
         mainInteractor.getTenUpcomingLaunches(this, upcomingLaunchNum)
     }
 
@@ -17,6 +18,7 @@ class MainPresenter(var mainView: MainView?,
 
     override fun onSuccessUpcomingTen(launchResponse: LaunchResponseModel?) {
         mainView?.showUpcomingTenLaunch(launchResponse)
+        mainView?.stopAnimation()
     }
 
     override fun onError() {

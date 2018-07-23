@@ -11,4 +11,8 @@ interface MainView {
 
     fun showError()
 
+    fun showAnimation()
+
+    fun stopAnimation()
+
 }
