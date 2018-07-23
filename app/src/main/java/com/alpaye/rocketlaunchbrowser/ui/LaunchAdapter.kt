@@ -24,4 +24,5 @@ class LaunchAdapter(
             notifyDataSetChanged()
         }
     }
+
 }
